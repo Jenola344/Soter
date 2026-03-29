@@ -309,6 +309,15 @@ describe('ClaimsService', () => {
             provide: AuditService,
             useValue: mockAuditService,
           },
+          {
+            provide: EncryptionService,
+            useValue: {
+              encrypt: jest.fn((v: string) => v),
+              decrypt: jest.fn((v: string) => v),
+              encryptDeterministic: jest.fn((v: string) => v),
+              decryptDeterministic: jest.fn((v: string) => v),
+            },
+          },
         ],
       }).compile();
 
